@@ -1,10 +1,13 @@
 import React from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 
-class App extends React
+let mapKey = import.meta.env.VITE_MAP_API_KEY;
+console.log(mapKey);
 
-handleName = async() => {
-  let result = await axios.get("https://us1.locationiq.com/v1/search.php");
+class App extends React.Component{
+
+handleName = async() =>{
+  let result = await axios.get(`https://us1.locationiq.com/v1/search?key=${mapKey}&q=smyrna&format=json`);
    console.log(result)
 
 }
@@ -13,7 +16,8 @@ render() {
     <>
     <button onClick={this.handleName}>Explore!</button>
     </>
-  )
+  )}
 }
+
 
  export default App;
