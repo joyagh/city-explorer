@@ -13,50 +13,50 @@ class App extends React.Component {
       lat: "",
       lon: "",
       img: "",
-
+      movies: [],
     };
   }
 
   handleName = async (event) => {
     event.preventDefault();
-    try{
-
+    try {
       let location = event.target.cityName.value;
       console.log(location, "line 17");
       let result = await axios.get(
         `https://us1.locationiq.com/v1/search?key=${mapKey}&q=${location}&format=json`
-        );
-        let lat = result.data[0].lat;
-        let lon = result.data[0].lon;
-        this.setState({
-          location,
-          lat,
-          lon,
-        });
-        result = await axios.get(
-          `https://maps.locationiq.com/v3/staticmap?key=${mapKey}&center=${lat},${lon}&zoom=<zoom>&size=<width>x<height>&format=<format>&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`, {responseType: "arraybuffer"}
-          );
-          let binary = "";
-          const bytes = new Uint8Array(result.data);
-          bytes.forEach(byte => binary += String.fromCharCode(byte))
-          const base64String = window.btoa(binary)
-          
-          this.setState({
-            img: `data:image/png;base64,${base64String}`,
-          });
-          console.log(result);
-          
-        }catch(error){
-          console.error({
-            "error": "Unable to geocode"
-          })
-          this.setState({location: "Please type in a location"})
-        }
-        };
-        render() {
-          return (
-            <>
-        <Card>
+      );
+      let lat = result.data[0].lat;
+      let lon = result.data[0].lon;
+      this.setState({
+        location,
+        lat,
+        lon,
+        movies,
+      });
+      result = await axios.get(
+        `https://maps.locationiq.com/v3/staticmap?key=${mapKey}&center=${lat},${lon}&zoom=<zoom>&size=<width>x<height>&format=<format>&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`,
+        { responseType: "arraybuffer" }
+      );
+      let binary = "";
+      const bytes = new Uint8Array(result.data);
+      bytes.forEach((byte) => (binary += String.fromCharCode(byte)));
+      const base64String = window.btoa(binary);
+
+      this.setState({
+        img: `data:image/png;base64,${base64String}`,
+      });
+      console.log(result);
+    } catch (error) {
+      console.error({
+        error: "Unable to geocode",
+      });
+      this.setState({ location: "Please type in a location" });
+    }
+  };
+  render() {
+    return (
+      <>
+        <Card className="card">
           <Card.Title>{this.state.location}</Card.Title>
           <Card.Text>{this.state.lat}</Card.Text>
           <Card.Text>{this.state.lon}</Card.Text>
