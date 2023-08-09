@@ -67,6 +67,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-#card {
+.card {
   background-color: #535bf2;
 }

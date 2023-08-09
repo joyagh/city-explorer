@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { Form, Card } from "react-bootstrap";
+// import movies from "./assets/Movies"
 
-let mapKey = import.meta.env.VITE_MAP_API_KEY;
+const url = import.meta.env.VITE_BACKENDURL || "http://localhost:4001";
+const mapKey = import.meta.env.VITE_MAP_API_KEY;
 console.log(mapKey);
 
 class App extends React.Component {
@@ -16,7 +18,14 @@ class App extends React.Component {
       movies: [],
     };
   }
-
+componentDidMount(){
+  let callBackEnd = async() => {
+    console.log()
+   
+  
+  };
+  callBackEnd();
+}
   handleName = async (event) => {
     event.preventDefault();
     try {
@@ -31,7 +40,7 @@ class App extends React.Component {
         location,
         lat,
         lon,
-        movies,
+        // movies,
       });
       result = await axios.get(
         `https://maps.locationiq.com/v3/staticmap?key=${mapKey}&center=${lat},${lon}&zoom=<zoom>&size=<width>x<height>&format=<format>&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`,
@@ -45,12 +54,19 @@ class App extends React.Component {
       this.setState({
         img: `data:image/png;base64,${base64String}`,
       });
-      console.log(result);
+      this.setState({ location: location });
     } catch (error) {
       console.error({
         error: "Unable to geocode",
       });
-      this.setState({ location: "Please type in a location" });
+    }
+    try{
+      let weatherData = await axios.get(`${url}/weather?lat=${this.state.lat}&lon=${this.state.lon}`)
+      console.log(weatherData);
+    } catch(error){
+      console.error({
+        error: "Unable to retrieve weather data"
+      })
     }
   };
   render() {
