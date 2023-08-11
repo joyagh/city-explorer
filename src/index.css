@@ -70,3 +70,7 @@ button:focus-visible {
 .card {
   background-color: #535bf2;
 }
+.movie-card {
+  display: flex;
+  flex-wrap: wrap;
+}
