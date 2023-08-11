@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Card } from "react-bootstrap";
+import { Form, Card, } from "react-bootstrap";
 import Movies from "./assets/Movies";
 
 
@@ -32,7 +32,7 @@ componentDidMount(){
   handleName = async (event) => {
     event.preventDefault();
     try {
-      let location = event.target.cityName.value;
+      let location = event.target.location.value;
       console.log(location, "line 17");
       let result = await axios.get(
         `https://us1.locationiq.com/v1/search?key=${mapKey}&q=${location}&format=json`
@@ -73,7 +73,8 @@ componentDidMount(){
       })
     }
     try {
-      let movieData = await axios.get(`${url}/movies?cityname=${this.state.location}`)
+      let movieData = await axios.get(`${url}/movies?location=${this.state.location}`)
+      console.log(movieData);
      this.setState({movieData: movieData.data})
  } catch(error) {
       console.error(error.error)
@@ -92,21 +93,24 @@ componentDidMount(){
         <Movies 
         key={index} 
         title={movie.title}
-         description={movie.overview}
-          avgVotes={movie.average}
-           totalVotes={movie.total}
-            popularity={movie.popularity}
-             release={movie.release} 
-              />
+        poster={movie.imgURL}
+        description={movie.description}
+        avgVotes={movie.avgVotes}
+        totalVotes={movie.totalVotes}
+        popularity={movie.popularity}
+        release={movie.releaseDate} 
+        />
+    
+              
          ))}
-
+      
+        
         </div>
-        TODO weather component...
         <img src={this.state.img} alt="Weather"/>
          
         <Form onSubmit={this.handleName}>
           <Form.Label>
-            <Form.Control id="city-name" type="text" name="cityName" />
+            <Form.Control id="city-name" type="text" name="location" />
           </Form.Label>
           <button type="submit">Explore!</button>
         </Form>

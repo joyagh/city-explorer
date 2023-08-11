@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: black;
 }
 
 h1 {
@@ -67,10 +68,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.card {
-  background-color: #535bf2;
-}
+
 .movie-card {
+  background-color: dimgray;
+  width: 18rem;
+  color: black;
   display: flex;
   flex-wrap: wrap;
+}
+.list-group{
+border-radius: #535bf2;
 }

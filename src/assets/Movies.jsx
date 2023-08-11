@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
-import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import React, {Component} from 'react';
+import { Card, ListGroup} from 'react-bootstrap';
 
-export default class Movies extends React.Component {
+
+
+
+export default class Movies extends Component {
      constructor(props) {
           super(props);
      }
@@ -9,19 +12,24 @@ export default class Movies extends React.Component {
     
   render() {
     return (
-     <div>
-     <Card>
+     <div >
+      
+     <Card className="movie-card">
+      <Card.Img src={this.props.poster} />
+      <Card.Body>
       <Card.Title>{this.props.title}</Card.Title>
-      <img src={this.props.imgUrl} alt={`Poster Image of the movie ${this.props.title}`} />
-      <ListGroup>
-          <ListGroup.Item>Description: {this.props.overview}</ListGroup.Item>
-          <ListGroup.Item>Average Votes: {this.props.average}</ListGroup.Item>
-          <ListGroup.Item>Total Votes: {this.props.total}</ListGroup.Item>
-          <ListGroup.Item> Popularity: {this.props.popularity}</ListGroup.Item>
-          <ListGroup.Item>Release Date: {this.props.release}</ListGroup.Item>
+      <Card.Text>Description: {this.props.description}</Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group">
+        <ListGroup.Item>Average Votes: {this.props.avgVotes}</ListGroup.Item>
+        <ListGroup.Item>Vote Count: {this.props.totalVotes}</ListGroup.Item>
+        <ListGroup.Item>Popularity: {this.props.popularity}</ListGroup.Item>
+        <ListGroup.Item>Release Date: {this.props.release}</ListGroup.Item>
       </ListGroup>
-      </Card>
+     </Card>
+      
       </div>
     )
 }
 }
+// alt={`Poster Image of the movie ${this.props.title}`}
