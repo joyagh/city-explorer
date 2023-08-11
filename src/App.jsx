@@ -73,7 +73,7 @@ componentDidMount(){
       })
     }
     try {
-      let movieData = await axios.get(`${url}/movies?cityname=${this.state.cityName}`)
+      let movieData = await axios.get(`${url}/movies?cityname=${this.state.location}`)
      this.setState({movieData: movieData.data})
  } catch(error) {
       console.error(error.error)
