@@ -89,8 +89,16 @@ componentDidMount(){
         </Card>
         <div className="movie-card">
         {this.state.movieData.map((movie, index) => (
-        <Movies key={index} title={movie.title} description={movie.overview} avgVotes={movie.average} totalVotes={movie.total} popularity={movie.popularity} release={movie.release}  />
-         ))};
+        <Movies 
+        key={index} 
+        title={movie.title}
+         description={movie.overview}
+          avgVotes={movie.average}
+           totalVotes={movie.total}
+            popularity={movie.popularity}
+             release={movie.release} 
+              />
+         ))}
 
         </div>
         TODO weather component...

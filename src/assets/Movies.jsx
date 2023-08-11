@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-export default class Movies extends Component {
+export default class Movies extends React.Component {
      constructor(props) {
           super(props);
      }
@@ -22,7 +22,6 @@ export default class Movies extends Component {
       </ListGroup>
       </Card>
       </div>
-    )};
-
-
-
+    )
+}
+}
