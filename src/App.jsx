@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Form, Card, } from "react-bootstrap";
 import Movies from "./assets/Movies";
+import Forecast from "./assets/Forecast";
 
 
 
@@ -93,21 +94,29 @@ componentDidMount(){
         <Movies 
         key={index} 
         title={movie.title}
-        poster={movie.imgURL}
+        imgUrl={movie.imgURL}
         description={movie.description}
         avgVotes={movie.avgVotes}
         totalVotes={movie.totalVotes}
         popularity={movie.popularity}
         release={movie.releaseDate} 
         />
-    
+     
               
          ))}
       
         
         </div>
-        <img src={this.state.img} alt="Weather"/>
-         
+        <div>
+          {this.state.weatherData.map((forecast, index) => (
+            <Forecast 
+            key={index}
+            date={forecast.date}
+            description={forecast.description}
+            />
+
+          ))}
+         </div>
         <Form onSubmit={this.handleName}>
           <Form.Label>
             <Form.Control id="city-name" type="text" name="location" />

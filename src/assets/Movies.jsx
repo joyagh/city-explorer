@@ -15,7 +15,7 @@ export default class Movies extends Component {
      <div >
       
      <Card className="movie-card">
-      <Card.Img src={this.props.poster} />
+      <Card.Img src={this.props.imgURL} />
       <Card.Body>
       <Card.Title>{this.props.title}</Card.Title>
       <Card.Text>Description: {this.props.description}</Card.Text>
