@@ -3,6 +3,7 @@ import axios from "axios";
 import { Form, Card, } from "react-bootstrap";
 import Movies from "./assets/Movies";
 import Forecast from "./assets/Forecast";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -85,6 +86,7 @@ componentDidMount(){
     return (
       <>
         <Card className="card">
+        <Card.Img className="map-image" src={this.state.img} />
           <Card.Title>{this.state.location}</Card.Title>
           <Card.Text>{this.state.lat}</Card.Text>
           <Card.Text>{this.state.lon}</Card.Text>
@@ -94,7 +96,7 @@ componentDidMount(){
         <Movies 
         key={index} 
         title={movie.title}
-        imgUrl={movie.imgURL}
+        imgURL={movie.imgURL}
         description={movie.description}
         avgVotes={movie.avgVotes}
         totalVotes={movie.totalVotes}

@@ -79,3 +79,7 @@ button:focus-visible {
 .list-group{
 border-radius: #535bf2;
 }
+.map-image {
+  width: 300px;
+  height: 300px;
+}
