@@ -1,12 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>City Explorer</title>
   </head>
-  <body>
+  <body id="body-wrapper">
+    <header id="headers">
+      <h1>Welcome to City Explorer!</h1>
+      <h4 id="summary">
+        Below, you can enter in a city you plan to visit and see a 10-day
+        weather forecast of the city, as well as, movies with that city's name
+        in it's title!
+      </h4>
+      <h3 id="happy">Happy Exploring!</h3>
+    </header>
     <div id="root"></div>
     <div id="card"></div>
     <script type="module" src="/src/main.jsx"></script>

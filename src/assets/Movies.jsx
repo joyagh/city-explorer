@@ -13,9 +13,9 @@ export default class Movies extends Component {
   render() {
     console.log(this.props);
     return (
-     <div >
+     <div className="movie-card">
       
-     <Card className="movie-card">
+     <Card >
       <Card.Img src={this.props.imgURL} />
       <Card.Body>
       <Card.Title>{this.props.title}</Card.Title>

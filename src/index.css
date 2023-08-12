@@ -83,3 +83,13 @@ border-radius: #535bf2;
   width: 300px;
   height: 300px;
 }
+
+#headers {
+  width:900px;
+  color: white;
+  text-align: center;
+}
+#body-wrapper {
+  display:flex;
+  flex-wrap: wrap;
+}
