@@ -85,7 +85,7 @@ componentDidMount(){
   render() {
     return (
       <>
-      <Form onSubmit={this.handleName} id="form-container">
+      <Form onSubmit={this.handleName} className="form-container">
           <Form.Label>
             <Form.Control id="city-name" type="text" name="location" />
           </Form.Label>
@@ -97,7 +97,7 @@ componentDidMount(){
           <Card.Text>{this.state.lat}</Card.Text>
           <Card.Text>{this.state.lon}</Card.Text>
         </Card>}
-        <div className="movie-card">
+        <div className="movie-cards-container">
         {this.state.movieData.map((movie, index) => (
           
         <Movies 

@@ -49,7 +49,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: blueviolet;
 }
 button:focus,
 button:focus-visible {
@@ -69,16 +69,8 @@ button:focus-visible {
   }
 }
 
-.movie-card {
-  background-color: dimgray;
-  width: 18rem;
-  color: black;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-.list-group{
-border-radius: #535bf2;
-}
+
+
 .map-image {
   width: 300px;
   height: 300px;
@@ -94,3 +86,42 @@ border-radius: #535bf2;
  
 }
 
+.movie-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.movie-card {
+  background-color: dimgray;
+  width: calc(33.33% - 30px); 
+  color: black;
+  margin: 15px; /* Add margin to space out the cards */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.movie-card .card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-card .list-group-item {
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: black; /* Change text color for better visibility */
+}
+
+
+
+.movie-card button:hover {
+  background-color: #646cff;
+}
+
+
+  .movie-card {
+    background-color: #f9f9f9;
+  }
