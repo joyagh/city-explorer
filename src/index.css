@@ -73,8 +73,8 @@ button:focus-visible {
   background-color: dimgray;
   width: 18rem;
   color: black;
-  display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 .list-group{
 border-radius: #535bf2;
@@ -89,6 +89,8 @@ border-radius: #535bf2;
   text-align: center;
 }
 #body-wrapper {
-  display:column;
+  display:flex;
+  flex-direction: column;
  
 }
+

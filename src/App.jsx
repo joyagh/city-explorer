@@ -85,6 +85,12 @@ componentDidMount(){
   render() {
     return (
       <>
+      <Form onSubmit={this.handleName} id="form-container">
+          <Form.Label>
+            <Form.Control id="city-name" type="text" name="location" />
+          </Form.Label>
+          <button type="submit">Explore!</button>
+        </Form>
          {this.state.img &&<Card className="card">
         <Card.Img className="map-image" src={this.state.img} />
           <Card.Title>{this.state.location}</Card.Title>
@@ -120,12 +126,7 @@ componentDidMount(){
 
           ))}
          </div>
-        <Form onSubmit={this.handleName}>
-          <Form.Label>
-            <Form.Control id="city-name" type="text" name="location" />
-          </Form.Label>
-          <button type="submit">Explore!</button>
-        </Form>
+        
       </>
     )
   }
