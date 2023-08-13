@@ -25,7 +25,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -85,11 +85,10 @@ border-radius: #535bf2;
 }
 
 #headers {
-  width:900px;
-  color: white;
+ color: white;
   text-align: center;
 }
 #body-wrapper {
-  display:flex;
-  flex-wrap: wrap;
+  display:column;
+ 
 }

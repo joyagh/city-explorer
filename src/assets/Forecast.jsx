@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 
 
 
@@ -14,10 +14,10 @@ export default class Forecast extends Component {
     return (
      <div >
       
-     <Card>
-      <Card.Text>{this.props.date}</Card.Text>
-      <Card.Text> {this.props.description}</Card.Text>
-      </Card>
+     <Accordion>
+      <Accordion.Header>Weather on {this.props.date}</Accordion.Header>
+      <Accordion.Body> {this.props.description}</Accordion.Body>
+      </Accordion>
       
       </div>
     )

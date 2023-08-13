@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import { Card, ListGroup} from 'react-bootstrap';
 
-
-
-
 export default class Movies extends Component {
      constructor(props) {
           super(props);
@@ -11,7 +8,8 @@ export default class Movies extends Component {
      
     
   render() {
-  
+    
+
     return (
      <div className="movie-card">
       
@@ -22,7 +20,7 @@ export default class Movies extends Component {
       <Card.Text>Description: {this.props.description}</Card.Text>
       </Card.Body>
       <ListGroup className="list-group">
-        <ListGroup.Item>Average Votes: {this.props.avgVotes}</ListGroup.Item>
+        <ListGroup.Item>Rating: {this.props.avgVotes}</ListGroup.Item>
         <ListGroup.Item>Vote Count: {this.props.totalVotes}</ListGroup.Item>
         <ListGroup.Item>Popularity: {this.props.popularity}</ListGroup.Item>
         <ListGroup.Item>Release Date: {this.props.release}</ListGroup.Item>
