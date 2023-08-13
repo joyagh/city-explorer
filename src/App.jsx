@@ -6,10 +6,11 @@ import Forecast from "./assets/Forecast";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
+const placeholder = "https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg";
 const url = import.meta.env.VITE_BACKENDURL || "http://localhost:4001";
 const mapKey = import.meta.env.VITE_MAP_API_KEY;
 console.log(mapKey)
+
 
 class App extends React.Component {
   constructor(props) {
@@ -85,28 +86,29 @@ componentDidMount(){
   render() {
     return (
       <>
-        <Card className="card">
+         {this.state.img &&<Card className="card">
         <Card.Img className="map-image" src={this.state.img} />
           <Card.Title>{this.state.location}</Card.Title>
           <Card.Text>{this.state.lat}</Card.Text>
           <Card.Text>{this.state.lon}</Card.Text>
-        </Card>
+        </Card>}
         <div className="movie-card">
         {this.state.movieData.map((movie, index) => (
+          
         <Movies 
         key={index} 
         title={movie.title}
-        imgURL={movie.imgURL}
+        imgURL={typeof movie.imgURL === "string" ? movie.imageURL : placeholder} //? 
         description={movie.description}
         avgVotes={movie.avgVotes}
         totalVotes={movie.totalVotes}
         popularity={movie.popularity}
         release={movie.releaseDate} 
         />
-     
-              
-         ))}
+        
       
+         ))}
+        
         
         </div>
         <div>
