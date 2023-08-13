@@ -6,10 +6,10 @@ import Forecast from "./assets/Forecast";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
 const url = import.meta.env.VITE_BACKENDURL || "http://localhost:4001";
 const mapKey = import.meta.env.VITE_MAP_API_KEY;
 console.log(mapKey)
+
 
 class App extends React.Component {
   constructor(props) {
@@ -85,14 +85,21 @@ componentDidMount(){
   render() {
     return (
       <>
-        <Card className="card">
+      <Form onSubmit={this.handleName} id="form-container">
+          <Form.Label>
+            <Form.Control id="city-name" type="text" name="location" />
+          </Form.Label>
+          <button type="submit">Explore!</button>
+        </Form>
+         {this.state.img &&<Card className="card">
         <Card.Img className="map-image" src={this.state.img} />
           <Card.Title>{this.state.location}</Card.Title>
           <Card.Text>{this.state.lat}</Card.Text>
           <Card.Text>{this.state.lon}</Card.Text>
-        </Card>
+        </Card>}
         <div className="movie-card">
         {this.state.movieData.map((movie, index) => (
+          
         <Movies 
         key={index} 
         title={movie.title}
@@ -103,10 +110,10 @@ componentDidMount(){
         popularity={movie.popularity}
         release={movie.releaseDate} 
         />
-     
-              
-         ))}
+        
       
+         ))}
+        
         
         </div>
         <div>
@@ -119,12 +126,7 @@ componentDidMount(){
 
           ))}
          </div>
-        <Form onSubmit={this.handleName}>
-          <Form.Label>
-            <Form.Control id="city-name" type="text" name="location" />
-          </Form.Label>
-          <button type="submit">Explore!</button>
-        </Form>
+        
       </>
     )
   }

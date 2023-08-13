@@ -25,7 +25,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -73,8 +73,8 @@ button:focus-visible {
   background-color: dimgray;
   width: 18rem;
   color: black;
-  display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 .list-group{
 border-radius: #535bf2;
@@ -85,11 +85,12 @@ border-radius: #535bf2;
 }
 
 #headers {
-  width:900px;
-  color: white;
+ color: white;
   text-align: center;
 }
 #body-wrapper {
   display:flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+ 
 }
+
