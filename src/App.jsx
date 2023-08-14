@@ -85,6 +85,16 @@ componentDidMount(){
   render() {
     return (
       <>
+          <div className="weather-container">
+            {console.log(Forecast)}
+            {this.state.weatherData.map((forecast, index) => (
+              <Forecast 
+              key={index}
+              date={forecast.date}
+              description={forecast.description}
+              />
+            ))}
+           </div>
       <Form onSubmit={this.handleName} className="form-container">
           <Form.Label>
             <Form.Control id="city-name" type="text" name="location" />
@@ -92,11 +102,16 @@ componentDidMount(){
           <button type="submit">Explore!</button>
         </Form>
          {this.state.img &&<Card className="card">
+          <div className="card-content">
         <Card.Img className="map-image" src={this.state.img} />
+        <div className="text-container">
           <Card.Title>{this.state.location}</Card.Title>
           <Card.Text>{this.state.lat}</Card.Text>
           <Card.Text>{this.state.lon}</Card.Text>
+          </div>
+          </div>
         </Card>}
+      
         <div className="movie-cards-container">
         {this.state.movieData.map((movie, index) => (
           
@@ -116,16 +131,8 @@ componentDidMount(){
         
         
         </div>
-        <div>
-          {this.state.weatherData.map((forecast, index) => (
-            <Forecast 
-            key={index}
-            date={forecast.date}
-            description={forecast.description}
-            />
+       
 
-          ))}
-         </div>
         
       </>
     )

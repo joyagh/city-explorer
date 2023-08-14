@@ -1,3 +1,4 @@
+@import url('https://fonts.goolgeapis.com/css2?family+Poppins:wght@700&display=swap');
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -69,11 +70,22 @@ button:focus-visible {
   }
 }
 
+.card-content {
+  display: flex;
+  align-items: center; 
+}
+.map-image {
+  
+  margin-right: 65px; 
+}
 
+.text-container {
+  flex: 1; /* Allow text container to grow and fill available space */
+}
 
 .map-image {
-  width: 300px;
-  height: 300px;
+  width: 75%;
+  height: 475px;
 }
 
 #headers {
@@ -97,7 +109,7 @@ button:focus-visible {
   background-color: dimgray;
   width: calc(33.33% - 30px); 
   color: black;
-  margin: 15px; /* Add margin to space out the cards */
+  margin: 15px; 
   display: flex;
   flex-direction: column;
 }
@@ -112,9 +124,8 @@ button:focus-visible {
   padding: 0.25rem 0.5rem;
   background-color: transparent;
   border: none;
-  color: black; /* Change text color for better visibility */
+  color: black; 
 }
-
 
 
 .movie-card button:hover {
@@ -125,3 +136,39 @@ button:focus-visible {
   .movie-card {
     background-color: #f9f9f9;
   }
+  .weather-container{
+    background-color: black;
+    color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+h1 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14vw;
+  color: black;
+  -webkit-text-stroke: 0.3vw peru;
+  text-transform: uppercase;
+  
+}
+h1::before {
+content:attr(Welcome);
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+color: peru;
+-webkit-text-stroke:  0vw peru;
+border-right: 2px solid yellow;
+overflow: hidden;
+
+
+}
