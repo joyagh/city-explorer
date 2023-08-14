@@ -139,36 +139,16 @@ button:focus-visible {
   .weather-container{
     background-color: black;
     color: white;
-    width: 300px;
-    height: 300px;
+    max-width: fit-content;
     display: flex;
+    /* flex-wrap: wrap; */
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    margin-top: 15px;
     margin-left: 60px;
     margin-right: 60px;
   }
-h1 {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14vw;
-  color: black;
-  -webkit-text-stroke: 0.3vw peru;
-  text-transform: uppercase;
-  
-}
-h1::before {
-content:attr(Welcome);
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-color: peru;
--webkit-text-stroke:  0vw peru;
-border-right: 2px solid yellow;
-overflow: hidden;
-
-
+#form-container {
+  display: flex;
+  justify-content: center;
 }
